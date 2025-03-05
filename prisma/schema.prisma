@@ -1,0 +1,135 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  subject_id    Int            @id
+  subject_name  String
+  credits       Int
+  isRequired    Boolean
+  term          String
+  theory        Int
+  practice      Int
+  prerequisites Prerequisite[]
+  classes       Class[]
+  grades        Grade[]
+}
+
+model Prerequisite {
+  prerequisite_id         Int     @id
+  prerequisite_subject_id Int
+  subject_id              Int
+  subject                 Subject @relation(fields: [subject_id], references: [subject_id])
+}
+
+model Student {
+  student_id    Int          @id
+  student_name  String
+  code          Int          @unique
+  status        String
+  password      String
+  email         String
+  gender        Boolean      @default(true)
+  total_credits Int          @default(0)
+  enrollments   Enrollment[]
+  schedules     Schedule[]
+  grades        Grade[]
+
+  education Education[]
+}
+
+// Course, Training level, Sector, Faculty, Class, Training type, Specialization, Facility,identifier class
+model Education {
+  education_id     Int      @id
+  course           String
+  training_level   String
+  sector           String
+  faculty          String
+  training_type    String
+  major            String
+  facility         String
+  identifier_class String
+  student_id       Int?
+  student          Student? @relation(fields: [student_id], references: [student_id])
+}
+
+model Class {
+  class_id         Int           @id
+  subject_id       Int
+  professor_name   String
+  class_name       String
+  max_capacity     Int
+  current_capacity Int           @default(0)
+  term             Int
+  year             Int
+  status           Boolean?      @default(true) // when close the class, status will be false
+  isEnrolling      Boolean?      @default(true) // when close the enrollment, isEnrolling will be false
+  subject          Subject       @relation(fields: [subject_id], references: [subject_id])
+  enrollments      Enrollment[]
+  schedules        Schedule[]
+  details          ClassDetail[]
+}
+
+model ClassDetail {
+  class_detail_id Int    @id
+  class_id        Int
+  class           Class  @relation(fields: [class_id], references: [class_id])
+  study_time      String
+  group_practice  Int?
+  room_name       String
+  towner          String
+}
+
+model Enrollment {
+  enrollment_id       Int      @id
+  student_id          Int
+  class_id            Int
+  class_detail_id     Int
+  status              String // when close the class, status will be "closed"
+  registration_date   DateTime @default(now())
+  confirmation_status Boolean  @default(false) // when student confirm the enrollment, confirmation_status will be true
+  student             Student  @relation(fields: [student_id], references: [student_id])
+  class               Class    @relation(fields: [class_id], references: [class_id])
+}
+
+model Grade {
+  grade_id     Int     @id
+  student_id   Int
+  subject_id   Int
+  midterm      Float
+  final        Float
+  theory_1     Float?
+  theory_2     Float?
+  theory_3     Float?
+  theory_4     Float?
+  theory_5     Float?
+  practice_1   Float?
+  practice_2   Float?
+  practice_3   Float?
+  practice_4   Float?
+  practice_5   Float?
+  digit_score  Float
+  letter_score String
+  student      Student @relation(fields: [student_id], references: [student_id])
+  subject      Subject @relation(fields: [subject_id], references: [subject_id])
+}
+
+model Schedule {
+  schedule_id Int      @id
+  student_id  Int
+  class_id    Int
+  time        DateTime
+  student     Student  @relation(fields: [student_id], references: [student_id])
+  class       Class    @relation(fields: [class_id], references: [class_id])
+}
