@@ -1,11 +1,12 @@
 import { BullModule } from '@nestjs/bull'
-import { CacheModule, Module, forwardRef } from '@nestjs/common'
+import { Module, forwardRef } from '@nestjs/common'
+import { CacheModule } from '@nestjs/cache-manager'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { JwtModule } from '@nestjs/jwt'
 import * as redisStore from 'cache-manager-redis-store'
 import { AuthModule } from '../auth/auth.module'
 import { CommonModule } from '../common/common.module'
-import { EmailConsumer } from '../consumers/queue.consummer'
+// import { EmailConsumer } from '../consumers/queue.consummer'
 import { PrismaModule } from '../prisma/prisma.module'
 import { UserCheck } from './user.check'
 import { UserController } from './user.controller'
@@ -14,7 +15,7 @@ import { UserService } from './user.service'
 import { SubjectModule } from '../subject/subject.module'
 @Module({
   controllers: [UserController],
-  providers: [UserService, UserRepository, UserCheck, EmailConsumer],
+  providers: [UserService, UserRepository, UserCheck],
   imports: [
     forwardRef(() => AuthModule),
     PrismaModule,
