@@ -1,5 +1,4 @@
 import { HttpStatus } from '@nestjs/common'
-
 import { PrismaService } from '../prisma/prisma.service'
 
 export type Tx = Omit<
@@ -8,8 +7,8 @@ export type Tx = Omit<
 >
 
 export type Response = {
-    status: HttpStatus
-    message: string
-    errors?: any
-    data?: any
+  status: HttpStatus
+  message: string
+  errors?: any
+  data?: any
 }
