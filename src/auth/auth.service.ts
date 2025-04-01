@@ -44,6 +44,7 @@ export class AuthService {
     return { params, salt, hash }
   }
 
+  //Băm mật khẩu
   hashPassword(password: string): Promise<string> {
     return new Promise((resolve, reject) => {
       randomBytes(this.SALT_LEN, (err, salt) => {
@@ -82,6 +83,7 @@ export class AuthService {
     })
   }
 
+  //Tạo JWT Token
   generateJWTRegisterAndLogin2FA(email: string): string {
     return sign({ email }, process.env.JWT_REGISTER_SECRET, {
       expiresIn: process.env.REGISTER_2FA_EXPIRED,
@@ -100,6 +102,7 @@ export class AuthService {
     })
   }
 
+  //Giải mã JWT Token
   decodeJWT(ac_token: Token): JwtPayload | string {
     return verify(ac_token, process.env.JWT_SECRET)
   }
