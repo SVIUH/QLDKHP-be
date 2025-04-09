@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Subject {
-  subject_id    Int            @id
+  subject_id    Int            @id @default(autoincrement())
   subject_name  String
   credits       Int
   isRequired    Boolean
@@ -27,14 +27,14 @@ model Subject {
 }
 
 model Prerequisite {
-  prerequisite_id         Int     @id
+  prerequisite_id         Int     @id @default(autoincrement())
   prerequisite_subject_id Int
   subject_id              Int
-  subject                 Subject @relation(fields: [subject_id], references: [subject_id])
+  subject                 Subject @relation(fields: [subject_id], references: [subject_id], onDelete: Cascade)
 }
 
 model Student {
-  student_id    Int          @id
+  student_id    Int          @id @default(autoincrement())
   student_name  String
   code          Int          @unique
   status        String
@@ -51,7 +51,7 @@ model Student {
 
 // Course, Training level, Sector, Faculty, Class, Training type, Specialization, Facility,identifier class
 model Education {
-  education_id     Int      @id
+  education_id     Int      @id @default(autoincrement())
   course           String
   training_level   String
   sector           String
@@ -65,7 +65,7 @@ model Education {
 }
 
 model Class {
-  class_id         Int           @id
+  class_id         Int           @id @default(autoincrement())
   subject_id       Int
   professor_name   String
   class_name       String
@@ -82,7 +82,7 @@ model Class {
 }
 
 model ClassDetail {
-  class_detail_id Int    @id
+  class_detail_id Int    @id @default(autoincrement())
   class_id        Int
   class           Class  @relation(fields: [class_id], references: [class_id])
   study_time      String
@@ -92,7 +92,7 @@ model ClassDetail {
 }
 
 model Enrollment {
-  enrollment_id       Int      @id
+  enrollment_id       Int      @id @default(autoincrement())
   student_id          Int
   class_id            Int
   class_detail_id     Int
@@ -104,7 +104,7 @@ model Enrollment {
 }
 
 model Grade {
-  grade_id     Int     @id
+  grade_id     Int     @id @default(autoincrement())
   student_id   Int
   subject_id   Int
   midterm      Float
@@ -126,10 +126,17 @@ model Grade {
 }
 
 model Schedule {
-  schedule_id Int      @id
+  schedule_id Int      @id @default(autoincrement())
   student_id  Int
   class_id    Int
   time        DateTime
   student     Student  @relation(fields: [student_id], references: [student_id])
   class       Class    @relation(fields: [class_id], references: [class_id])
+}
+
+model Admin {
+  admin_id   Int    @id @default(autoincrement())
+  email      String @unique
+  password   String
+  full_name  String
 }
