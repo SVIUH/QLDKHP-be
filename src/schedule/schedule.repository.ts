@@ -10,7 +10,7 @@ export class ScheduleRepository {
   async createSchedule(data: ScheduleToDBDto) {
     return this.prisma.schedule.create({
       data: {
-        schedule_id: data.schedule_id,
+        // schedule_id: data.schedule_id,
         class: {
           connect: {
             class_id: data.class_id,

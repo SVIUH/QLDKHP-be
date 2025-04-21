@@ -10,7 +10,7 @@ export class ClassRepository {
   async create(data: ClassToDBDto) {
     return await this.prisma.class.create({
       data: {
-        class_id: data.class_id,
+        // class_id: data.class_id,
         max_capacity: data.max_capacity,
         current_capacity: 0,
         professor_name: data.professor_name,
