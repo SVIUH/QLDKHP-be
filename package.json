@@ -24,6 +24,7 @@
     "seed": "node prisma/seed.js"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@nestjs/bull": "^11.0.2",
     "@nestjs/cache-manager": "^3.0.1",
     "@nestjs/common": "^11.0.12",
