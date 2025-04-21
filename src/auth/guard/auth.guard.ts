@@ -9,10 +9,13 @@ import {
 import { Cache } from 'cache-manager'
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { HttpExceptionCustom } from '../../common/common.exception'
+// import { JwtService } from '@nestjs/jwt';
   
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache,
+  // private jwtService: JwtService
+) {}
   async canActivate(context: ExecutionContext) {
     const url = context.switchToHttp().getRequest().url
     const request = context.switchToHttp().getRequest()
