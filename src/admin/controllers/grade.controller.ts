@@ -7,6 +7,7 @@ import {
   ApiOperation,
   ApiResponse,
 } from "@nestjs/swagger";
+import { UpdateGradeDto } from "../dto/grade.dto";
 
 @ApiTags("Grade Management")
 @ApiBearerAuth()
@@ -23,7 +24,8 @@ export class GradeController {
 
   @Post()
   @ApiOperation({ summary: "Cập nhật điểm cho sinh viên" })
-  async updateGrade(@Body() dto: any) {
+  @ApiResponse({ status: 200, description: "Điểm được cập nhật thành công" })
+  async updateGrade(@Body() dto: UpdateGradeDto) {
     return this.gradeService.updateGrade(dto);
   }
 }

@@ -1,4 +1,3 @@
-// // 📁 src/admin/services/admin.service.ts
 import { Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import * as bcrypt from "bcryptjs";
 import { CACHE_MANAGER } from "@nestjs/cache-manager";
@@ -6,8 +5,9 @@ import { JwtService } from "@nestjs/jwt";
 import { Cache } from "cache-manager";
 import { CreateClassDto, UpdateClassDto } from "../dto/class.dto";
 import { UpdateGradeDto } from "../dto/grade.dto";
-import { CreateScheduleDto } from "../dto/schedule.dto";
+import { CreateScheduleDto, UpdateScheduleDto } from "../dto/schedule.dto";
 import { AdminRepository } from "../repositories/admin.repository";
+import { UpdateStudentDto } from "../dto/student.dto";
 
 @Injectable()
 export class AdminService {
@@ -40,14 +40,21 @@ export class AdminService {
     return { access_token: token };
   }
 
-  async getAllClasses() {
-    const cacheKey = "classes:all";
-    const cached = await this.cacheManager.get(cacheKey);
-    if (cached) return cached;
+  // async getAllClasses() {
+  //   const cacheKey = "classes:all";
+  //   const cached = await this.cacheManager.get(cacheKey);
+  //   if (cached) return cached;
 
-    const data = await this.adminRepository.getAllClasses();
-    await this.cacheManager.set(cacheKey, data, 300);
-    return data;
+  //   const data = await this.adminRepository.getAllClasses();
+  //   await this.cacheManager.set(cacheKey, data, 300);
+  //   return data;
+  // }
+  async getAllClassesWithFilter(filter?: {
+    year?: number;
+    term?: number;
+    subject_id?: number;
+  }) {
+    return this.adminRepository.getAllClasses(filter);
   }
 
   async createClass(data: CreateClassDto) {
@@ -81,12 +88,12 @@ export class AdminService {
     return created;
   }
 
-  async updateSchedule(schedule_id: number, time: Date) {
-    const updated = await this.adminRepository.updateSchedule(
-      schedule_id,
-      time
-    );
+  async updateSchedule(schedule_id: number, data: UpdateScheduleDto) {
+    const updated = await this.adminRepository.updateSchedule(schedule_id, {
+      time: data.time,
+    });
     await this.cacheManager.del("schedules:all");
+    await this.cacheManager.del(`schedule:${updated.student_id}`);
     return updated;
   }
 
@@ -136,9 +143,23 @@ export class AdminService {
     await this.cacheManager.set(cacheKey, data, 300);
     return data;
   }
+
+  async updateStudent(student_id: number, data: UpdateStudentDto) {
+    const updated = await this.adminRepository.updateStudent(student_id, data);
+    await this.cacheManager.del("students:all");
+    return updated;
+  }
+
+  async deleteStudent(student_id: number) {
+    const deleted = await this.adminRepository.deleteStudent(student_id);
+    await this.cacheManager.del("students:all");
+    await this.cacheManager.del(`grades:${student_id}`);
+    await this.cacheManager.del(`schedule:${student_id}`);
+    return deleted;
+  }
 }
 
 // --- GIẢI THÍCH ---
-// ✅ Sử dụng JwtService chuẩn để tạo access_token
-// ✅ Redis cache áp dụng cho: getAllClasses, getAllSchedules, getAllStudents, getGradesByStudent, getSchedulesByStudent
-// ✅ Các hàm thêm/sửa/xóa sẽ tự động xóa cache liên quan để đảm bảo dữ liệu mới
+// Sử dụng JwtService chuẩn để tạo access_token
+// Redis cache áp dụng cho: getAllClasses, getAllSchedules, getAllStudents, getGradesByStudent, getSchedulesByStudent
+// Các hàm thêm/sửa/xóa sẽ tự động xóa cache liên quan để đảm bảo dữ liệu mới

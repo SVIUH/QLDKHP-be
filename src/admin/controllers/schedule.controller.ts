@@ -6,6 +6,7 @@ import {
   Param,
   Body,
   UseGuards,
+  Put,
 } from "@nestjs/common";
 import { AdminService } from "../services/admin.service";
 import { CreateScheduleDto } from "../dto/schedule.dto";
@@ -35,7 +36,6 @@ export class ScheduleController {
   create(@Body() dto: CreateScheduleDto) {
     return this.scheduleService.createSchedule(dto);
   }
-
   @Delete(":id")
   @ApiOperation({ summary: "Xoá lịch học theo ID" })
   remove(@Param("id") id: number) {

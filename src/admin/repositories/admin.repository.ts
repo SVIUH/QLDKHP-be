@@ -13,8 +13,26 @@ export class AdminRepository {
     return this.prisma.admin.findUnique({ where: { email } });
   }
 
-  async getAllClasses() {
-    return this.prisma.class.findMany();
+  // async getAllClasses() {
+  //   return this.prisma.class.findMany();
+  // }
+  async getAllClasses(filter?: {
+    year?: number;
+    term?: number;
+    subject_id?: number;
+  }) {
+    return this.prisma.class.findMany({
+      where: {
+        ...(filter?.year !== undefined && { year: filter.year }),
+        ...(filter?.term !== undefined && { term: filter.term }),
+        ...(filter?.subject_id !== undefined && {
+          subject_id: filter.subject_id,
+        }),
+      },
+      include: {
+        subject: true, // nếu bạn muốn include luôn subject
+      },
+    });
   }
 
   async createClass(data: CreateClassDto) {
@@ -51,10 +69,10 @@ export class AdminRepository {
     return this.prisma.schedule.create({ data });
   }
 
-  async updateSchedule(schedule_id: number, time: Date) {
+  async updateSchedule(schedule_id: number, data: { time: Date }) {
     return this.prisma.schedule.update({
       where: { schedule_id },
-      data: { time },
+      data,
     });
   }
 
@@ -84,5 +102,25 @@ export class AdminRepository {
 
   async getAllStudents() {
     return this.prisma.student.findMany();
+  }
+  async updateStudent(
+    student_id: number,
+    data: Partial<
+      Pick<
+        Prisma.StudentUpdateInput,
+        "student_name" | "email" | "status" | "gender"
+      >
+    >
+  ) {
+    return this.prisma.student.update({
+      where: { student_id },
+      data,
+    });
+  }
+
+  async deleteStudent(student_id: number) {
+    return this.prisma.student.delete({
+      where: { student_id },
+    });
   }
 }
