@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,6 +18,7 @@ model Subject {
   prerequisites Prerequisite[]
   classes       Class[]
   grades        Grade[]
+  @@map("subject")
 }
 
 model Prerequisite {
@@ -31,6 +26,7 @@ model Prerequisite {
   prerequisite_subject_id Int
   subject_id              Int
   subject                 Subject @relation(fields: [subject_id], references: [subject_id])
+  @@map("prerequisite")
 }
 
 model Student {
@@ -47,6 +43,7 @@ model Student {
   grades        Grade[]
 
   education Education[]
+  @@map("student")
 }
 
 // Course, Training level, Sector, Faculty, Class, Training type, Specialization, Facility,identifier class
@@ -62,6 +59,7 @@ model Education {
   identifier_class String
   student_id       Int?
   student          Student? @relation(fields: [student_id], references: [student_id])
+  @@map("education")
 }
 
 model Class {
@@ -79,6 +77,8 @@ model Class {
   enrollments      Enrollment[]
   schedules        Schedule[]
   details          ClassDetail[]
+
+  @@map("class")
 }
 
 model ClassDetail {
@@ -89,6 +89,7 @@ model ClassDetail {
   group_practice  Int?
   room_name       String
   towner          String
+  @@map("classDetail")
 }
 
 model Enrollment {
@@ -101,6 +102,7 @@ model Enrollment {
   confirmation_status Boolean  @default(false) // when student confirm the enrollment, confirmation_status will be true
   student             Student  @relation(fields: [student_id], references: [student_id])
   class               Class    @relation(fields: [class_id], references: [class_id])
+  @@map("enrollment")
 }
 
 model Grade {
@@ -123,6 +125,7 @@ model Grade {
   letter_score String
   student      Student @relation(fields: [student_id], references: [student_id])
   subject      Subject @relation(fields: [subject_id], references: [subject_id])
+  @@map("grade")
 }
 
 model Schedule {
@@ -132,4 +135,5 @@ model Schedule {
   time        DateTime
   student     Student  @relation(fields: [student_id], references: [student_id])
   class       Class    @relation(fields: [class_id], references: [class_id])
+  @@map("schedule")
 }
