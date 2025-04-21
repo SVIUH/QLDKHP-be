@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../prisma/prisma.service'
-import { ScheduleToDBDto } from './dto/schedule.db.dto'
-import { UpdateScheduleDto } from './dto/update.schedule.dto'
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
+import { ScheduleToDBDto } from "./dto/schedule.db.dto";
+import { UpdateScheduleDto } from "./dto/update.schedule.dto";
 @Injectable()
 export class ScheduleRepository {
   constructor(private prisma: PrismaService) {}
@@ -10,7 +10,6 @@ export class ScheduleRepository {
   async createSchedule(data: ScheduleToDBDto) {
     return this.prisma.schedule.create({
       data: {
-        schedule_id: data.schedule_id,
         class: {
           connect: {
             class_id: data.class_id,
@@ -23,7 +22,7 @@ export class ScheduleRepository {
           },
         },
       },
-    })
+    });
   }
 
   async getAllSchedule(student_id: number) {
@@ -39,7 +38,7 @@ export class ScheduleRepository {
           },
         },
       },
-    })
+    });
     const final = await Promise.all(
       //find class detail to replace enrollment
       data.map(async (item) => {
@@ -48,17 +47,17 @@ export class ScheduleRepository {
             class_id: item.class_id,
             class_detail_id: item.class.enrollments[0].class_detail_id,
           },
-        })
+        });
         return {
           ...item,
           class: {
             ...item.class,
             class_detail,
           },
-        }
-      }),
-    )
-    return final
+        };
+      })
+    );
+    return final;
   }
 
   async updateSchedule(id: number, data: UpdateScheduleDto) {
@@ -69,7 +68,7 @@ export class ScheduleRepository {
       data: {
         time: new Date(data.time.toString()),
       },
-    })
+    });
   }
 
   async deleteSchedule(id: number) {
@@ -77,6 +76,6 @@ export class ScheduleRepository {
       where: {
         schedule_id: id,
       },
-    })
+    });
   }
 }
