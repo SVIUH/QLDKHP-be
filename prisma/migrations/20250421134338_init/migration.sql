@@ -1,7 +1,6 @@
 /*
   Warnings:
 
-  - You are about to drop the `Admin` table. If the table is not empty, all the data it contains will be lost.
   - You are about to drop the `Class` table. If the table is not empty, all the data it contains will be lost.
   - You are about to drop the `ClassDetail` table. If the table is not empty, all the data it contains will be lost.
   - You are about to drop the `Education` table. If the table is not empty, all the data it contains will be lost.
@@ -42,9 +41,6 @@ ALTER TABLE "Schedule" DROP CONSTRAINT "Schedule_class_id_fkey";
 
 -- DropForeignKey
 ALTER TABLE "Schedule" DROP CONSTRAINT "Schedule_student_id_fkey";
-
--- DropTable
-DROP TABLE "Admin";
 
 -- DropTable
 DROP TABLE "Class";

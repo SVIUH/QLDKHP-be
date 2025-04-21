@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../prisma/prisma.service'
-import { ClassToDBDto } from './dto/class.db.dto'
-import { EnrollmentEnum } from 'src/enums'
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
+import { ClassToDBDto } from "./dto/class.db.dto";
+import { EnrollmentEnum } from "src/enums";
 @Injectable()
 export class ClassRepository {
   constructor(private prisma: PrismaService) {}
@@ -10,7 +9,6 @@ export class ClassRepository {
   async create(data: ClassToDBDto) {
     return await this.prisma.class.create({
       data: {
-        // class_id: data.class_id,
         max_capacity: data.max_capacity,
         current_capacity: 0,
         professor_name: data.professor_name,
@@ -27,7 +25,7 @@ export class ClassRepository {
           create: data.class_details,
         },
       },
-    })
+    });
   }
 
   async getAll() {
@@ -36,9 +34,9 @@ export class ClassRepository {
         subject: true,
         details: true,
       },
-    })
+    });
 
-    return rs
+    return rs;
   }
 
   async closeRegister(subject_id: number) {
@@ -49,10 +47,10 @@ export class ClassRepository {
       data: {
         isEnrolling: false,
       },
-    })
+    });
 
     if (updated.count === 0) {
-      return false
+      return false;
     }
 
     const closeEnroll = await this.prisma.enrollment.updateMany({
@@ -64,7 +62,7 @@ export class ClassRepository {
       data: {
         confirmation_status: true,
       },
-    })
+    });
 
     // get full student infor each class
     if (updated.count > 0 && closeEnroll.count > 0) {
@@ -75,7 +73,7 @@ export class ClassRepository {
         select: {
           enrollments: true,
         },
-      })
+      });
 
       const email = (
         await Promise.all(
@@ -89,14 +87,14 @@ export class ClassRepository {
                   student_name: true,
                   email: true,
                 },
-              })
-              return student
+              });
+              return student;
             }
-          }),
+          })
         )
-      ).filter((student) => student !== undefined)
+      ).filter((student) => student !== undefined);
 
-      return email
+      return email;
     }
   }
 
@@ -109,12 +107,12 @@ export class ClassRepository {
         current_capacity: true,
         max_capacity: true,
       },
-    })
+    });
 
     if (rs.current_capacity < rs.max_capacity) {
-      return true // class is not full and can be enrolled
+      return true; // class is not full and can be enrolled
     } else {
-      return false // class is full and cannot be enrolled
+      return false; // class is full and cannot be enrolled
     }
   }
 
@@ -123,11 +121,9 @@ export class ClassRepository {
       where: {
         class_id: classId,
       },
-      include: {
-        subject: true,
-      },
-    })
+      include: { subject: true },
+    });
 
-    return classRegistion
+    return classRegistion;
   }
 }

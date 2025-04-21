@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Subject" (
-    "subject_id" SERIAL NOT NULL,
+    "subject_id" INTEGER NOT NULL,
     "subject_name" TEXT NOT NULL,
     "credits" INTEGER NOT NULL,
     "isRequired" BOOLEAN NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE "Subject" (
 
 -- CreateTable
 CREATE TABLE "Prerequisite" (
-    "prerequisite_id" SERIAL NOT NULL,
+    "prerequisite_id" INTEGER NOT NULL,
     "prerequisite_subject_id" INTEGER NOT NULL,
     "subject_id" INTEGER NOT NULL,
 
@@ -22,7 +22,7 @@ CREATE TABLE "Prerequisite" (
 
 -- CreateTable
 CREATE TABLE "Student" (
-    "student_id" SERIAL NOT NULL,
+    "student_id" INTEGER NOT NULL,
     "student_name" TEXT NOT NULL,
     "code" INTEGER NOT NULL,
     "status" TEXT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE "Student" (
 
 -- CreateTable
 CREATE TABLE "Education" (
-    "education_id" SERIAL NOT NULL,
+    "education_id" INTEGER NOT NULL,
     "course" TEXT NOT NULL,
     "training_level" TEXT NOT NULL,
     "sector" TEXT NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE "Education" (
 
 -- CreateTable
 CREATE TABLE "Class" (
-    "class_id" SERIAL NOT NULL,
+    "class_id" INTEGER NOT NULL,
     "subject_id" INTEGER NOT NULL,
     "professor_name" TEXT NOT NULL,
     "class_name" TEXT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE "Class" (
 
 -- CreateTable
 CREATE TABLE "ClassDetail" (
-    "class_detail_id" SERIAL NOT NULL,
+    "class_detail_id" INTEGER NOT NULL,
     "class_id" INTEGER NOT NULL,
     "study_time" TEXT NOT NULL,
     "group_practice" INTEGER,
@@ -80,7 +80,7 @@ CREATE TABLE "ClassDetail" (
 
 -- CreateTable
 CREATE TABLE "Enrollment" (
-    "enrollment_id" SERIAL NOT NULL,
+    "enrollment_id" INTEGER NOT NULL,
     "student_id" INTEGER NOT NULL,
     "class_id" INTEGER NOT NULL,
     "class_detail_id" INTEGER NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE "Enrollment" (
 
 -- CreateTable
 CREATE TABLE "Grade" (
-    "grade_id" SERIAL NOT NULL,
+    "grade_id" INTEGER NOT NULL,
     "student_id" INTEGER NOT NULL,
     "subject_id" INTEGER NOT NULL,
     "midterm" DOUBLE PRECISION NOT NULL,
@@ -116,22 +116,12 @@ CREATE TABLE "Grade" (
 
 -- CreateTable
 CREATE TABLE "Schedule" (
-    "schedule_id" SERIAL NOT NULL,
+    "schedule_id" INTEGER NOT NULL,
     "student_id" INTEGER NOT NULL,
     "class_id" INTEGER NOT NULL,
     "time" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Schedule_pkey" PRIMARY KEY ("schedule_id")
-);
-
--- CreateTable
-CREATE TABLE "Admin" (
-    "admin_id" SERIAL NOT NULL,
-    "email" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
-    "full_name" TEXT NOT NULL,
-
-    CONSTRAINT "admin_pkey" PRIMARY KEY ("admin_id")
 );
 
 -- CreateIndex
