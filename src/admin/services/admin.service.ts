@@ -40,15 +40,6 @@ export class AdminService {
     return { access_token: token };
   }
 
-  // async getAllClasses() {
-  //   const cacheKey = "classes:all";
-  //   const cached = await this.cacheManager.get(cacheKey);
-  //   if (cached) return cached;
-
-  //   const data = await this.adminRepository.getAllClasses();
-  //   await this.cacheManager.set(cacheKey, data, 300);
-  //   return data;
-  // }
   async getAllClassesWithFilter(filter?: {
     year?: number;
     term?: number;
