@@ -78,4 +78,19 @@ export class ScheduleRepository {
       },
     });
   }
+
+  async getSchedulesByClassId(classId: number) {
+    return await this.prisma.schedule.findMany({
+      where: {
+        class_id: classId,
+      },
+      include: {
+        class: {
+          include: {
+            details: true,  // Sửa lại từ `class_detail` thành `details` vì quan hệ trong schema đã đặt là `details`
+          },
+        },
+      },
+    });
+  }
 }
