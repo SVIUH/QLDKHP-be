@@ -27,5 +27,6 @@ import { CacheModule } from '@nestjs/cache-manager';
       }),
     }),
   ],
+  exports: [ScheduleService]
 })
 export class ScheduleModule {}

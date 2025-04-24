@@ -62,5 +62,16 @@ import {
         }
       }
     }
+
+    @Get('subject/:subject_id')
+    async getClassesWithSchedules(@Param('subject_id') subjectId: number) {
+      const classesWithSchedules = await this.classService.getClassesWithSchedules(subjectId)
+      return classesWithSchedules
+    }
+
+    @Get('subject/:subject_id/schedules')
+    getClassesBySubject(@Param('subject_id') subjectId: number) {
+      return this.classService.getClassesBySubjectWithSchedules(Number(subjectId));
+    }
   }
   
