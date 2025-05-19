@@ -22,6 +22,7 @@ import { CacheModule } from "@nestjs/cache-manager";
 import { AppService } from "./app.service"; // Nhập AppService ở đây
 import { AdminModule } from "./admin/admin.module";
 import { PrismaService } from "./prisma/prisma.service";
+import { ChatModule } from "./chat/chat.module";
 
 @Module({
   imports: [
@@ -69,6 +70,7 @@ import { PrismaService } from "./prisma/prisma.service";
     AuthModule,
     SubjectModule,
     ScheduleModule,
+    ChatModule,
   ],
   providers: [
     AppService,
@@ -78,10 +80,10 @@ import { PrismaService } from "./prisma/prisma.service";
       provide: "VALID",
       useClass: Valid,
     },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
-    },
+    // {
+    //   provide: APP_INTERCEPTOR,
+    //   useClass: CacheInterceptor,
+    // },
   ],
   controllers: [UserController, AppController],
 })

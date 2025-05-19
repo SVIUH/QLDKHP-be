@@ -1,4 +1,27 @@
-import { IsInt, IsString, IsBoolean, IsOptional } from "class-validator";
+import {
+  IsInt,
+  IsString,
+  IsBoolean,
+  IsOptional,
+  ValidateNested,
+  IsArray,
+} from "class-validator";
+import { Type } from "class-transformer";
+
+export class CreateClassDetailDto {
+  @IsString()
+  study_time: string;
+
+  @IsOptional()
+  @IsInt()
+  group_practice?: number;
+
+  @IsString()
+  room_name: string;
+
+  @IsString()
+  towner: string;
+}
 
 export class CreateClassDto {
   @IsInt()
@@ -13,6 +36,7 @@ export class CreateClassDto {
   @IsInt()
   max_capacity: number;
 
+  @IsOptional()
   @IsInt()
   current_capacity?: number;
 
@@ -29,6 +53,11 @@ export class CreateClassDto {
   @IsOptional()
   @IsBoolean()
   isEnrolling?: boolean;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateClassDetailDto)
+  classDetails: CreateClassDetailDto[];
 }
 
 export class UpdateClassDto {
