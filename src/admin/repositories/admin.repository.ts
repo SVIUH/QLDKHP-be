@@ -36,8 +36,8 @@ export class AdminRepository {
   }
 
   async createClass(data: CreateClassDto) {
-    const createClassData: Prisma.ClassUncheckedCreateInput = {
-      subject_id: data.subject_id,
+    const createClassData: Prisma.ClassCreateInput = {
+      subject: { connect: { subject_id: data.subject_id } }, // do ClassCreateInput dùng relation
       professor_name: data.professor_name,
       class_name: data.class_name,
       max_capacity: data.max_capacity,
@@ -46,8 +46,22 @@ export class AdminRepository {
       year: data.year,
       status: data.status ?? true,
       isEnrolling: data.isEnrolling ?? true,
+      details: {
+        create: data.classDetails.map((detail) => ({
+          study_time: detail.study_time,
+          group_practice: detail.group_practice,
+          room_name: detail.room_name,
+          towner: detail.towner,
+        })),
+      },
     };
-    return this.prisma.class.create({ data: createClassData });
+
+    return this.prisma.class.create({
+      data: createClassData,
+      include: {
+        details: true,
+      },
+    });
   }
 
   async updateClass(class_id: number, data: UpdateClassDto) {

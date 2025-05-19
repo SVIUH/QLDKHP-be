@@ -41,8 +41,8 @@ model Student {
   enrollments   Enrollment[]
   schedules     Schedule[]
   grades        Grade[]
-
   education Education[]
+  chatRooms     ChatRoom[]
   @@map("student")
 }
 
@@ -143,5 +143,33 @@ model Admin {
   email      String @unique
   password   String
   full_name  String
+  chatRooms     ChatRoom[]
   @@map("admin")
+}
+
+enum SenderType {
+  STUDENT
+  ADMIN
+}
+model Message {
+  message_id   Int      @id @default(autoincrement())
+  content      String
+  sender_type  SenderType   
+  timestamp    DateTime @default(now())
+  chat_room_id Int
+  chatRoom     ChatRoom @relation(fields: [chat_room_id], references: [chat_room_id])
+
+  @@map("message")
+}
+
+model ChatRoom {
+  chat_room_id  Int       @id @default(autoincrement())
+  student_code  Int
+  admin_id      Int
+  student       Student   @relation(fields: [student_code], references: [code])
+  admin         Admin     @relation(fields: [admin_id], references: [admin_id])
+  messages      Message[]
+
+  @@unique([student_code, admin_id])
+  @@map("chat_room")
 }
