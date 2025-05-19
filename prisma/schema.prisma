@@ -145,6 +145,7 @@ model Admin {
   full_name  String
   chatRooms     ChatRoom[]
   @@map("admin")
+
 }
 
 enum SenderType {
@@ -173,3 +174,6 @@ model ChatRoom {
   @@unique([student_code, admin_id])
   @@map("chat_room")
 }
+
+
+

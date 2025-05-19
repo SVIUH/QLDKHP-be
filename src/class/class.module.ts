@@ -8,6 +8,8 @@ import { ClassRepository } from './class.repository'
 import { ClassService } from './class.service'
 import { SubjectModule } from '../subject/subject.module'
 import { GradeModule } from '../grade/grade.module'
+import { ScheduleModule } from '../schedule/schedule.module'
+import { ScheduleService } from '../schedule/schedule.service';
 import { BullModule } from '@nestjs/bull'
 import { CacheModule } from '@nestjs/cache-manager';
 
@@ -20,6 +22,7 @@ import { CacheModule } from '@nestjs/cache-manager';
     ConfigModule,
     SubjectModule,
     GradeModule,
+    ScheduleModule,
     BullModule.registerQueue({
       name: 'queue',
     }),

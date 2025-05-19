@@ -126,4 +126,25 @@ export class ClassRepository {
 
     return classRegistion;
   }
+
+  async getClassesBySubjectId(subjectId: number) {
+    return await this.prisma.class.findMany({
+      where: {
+        subject_id: subjectId,
+      },
+      include: {
+        subject: true,
+        details: true,
+      },
+    });
+  }
+
+  async findManyBySubject(subject_id: number) {
+    return await this.prisma.class.findMany({
+      where: { subject_id: subject_id },
+      include: {
+        details: true, // Không cần include class_detail nữa
+      },
+    });
+  }
 }

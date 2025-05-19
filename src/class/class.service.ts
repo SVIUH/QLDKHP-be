@@ -1,11 +1,14 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, Inject } from '@nestjs/common'
 import { CommonService } from '../common/common.service'
 import { ClassRepository } from './class.repository'
 import { ClassToDBDto } from './dto/class.db.dto'
 import { SubjectService } from '../subject/subject.service'
 import { GradeService } from '../grade/grade.service'
+import { ScheduleService } from '../schedule/schedule.service'
 import { InjectQueue } from '@nestjs/bull'
 import { Queue as QueueEmail } from 'bull'
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
 
 @Injectable()
 export class ClassService {
@@ -15,8 +18,10 @@ export class ClassService {
     private readonly commonService: CommonService,
     private readonly subjectService: SubjectService,
     private readonly gradeService: GradeService,
+    private readonly scheduleService: ScheduleService,
     @InjectQueue('queue')
     private readonly mailQueue: QueueEmail,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
   ) {}
 
   async createClass(data: ClassToDBDto) {
@@ -33,6 +38,7 @@ export class ClassService {
       class_details,
     }
     const rs = await this.classRepository.create(inputData)
+    await this.cacheManager.del('classes:all')
     return rs
   }
 
@@ -143,5 +149,42 @@ export class ClassService {
     )
 
     return hasEnrolledInAllPrerequisites
+  }
+
+  async getClassesWithSchedules(subject_id: number) {
+    // Lấy tất cả các lớp học của môn học
+    const classes = await this.classRepository.getClassesBySubjectId(subject_id)
+
+    // Lấy lịch học của từng lớp
+    const classesWithSchedules = await Promise.all(
+      classes.map(async (classItem) => {
+        const schedules = await this.scheduleService.getSchedulesByClassId(classItem.class_id)
+
+        // Kết hợp thông tin lớp học với lịch học
+        return {
+          ...classItem,
+          schedules,
+        }
+      }),
+    )
+
+    return classesWithSchedules
+  }
+
+  async getClassesBySubjectWithSchedules(subject_id: number) {
+    const classes = await this.classRepository.findManyBySubject(subject_id);
+  
+    const result = await Promise.all(
+      classes.map(async (cls) => {
+        const schedules = await this.scheduleService.getSchedulesByClassId(cls.class_id);
+  
+        return {
+          ...cls,
+          schedules,
+        };
+      }),
+    );
+  
+    return result;
   }
 }
