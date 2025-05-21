@@ -23,6 +23,7 @@ import { AppService } from "./app.service"; // Nhập AppService ở đây
 import { AdminModule } from "./admin/admin.module";
 import { PrismaService } from "./prisma/prisma.service";
 import { ChatModule } from "./chat/chat.module";
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @Module({
   imports: [
@@ -71,6 +72,7 @@ import { ChatModule } from "./chat/chat.module";
     SubjectModule,
     ScheduleModule,
     ChatModule,
+    ChatbotModule,
   ],
   providers: [
     AppService,
