@@ -1,0 +1,970 @@
+{
+  "hocKy": [
+    {
+      "tenHocKy": "Học Kỳ 1",
+      "tongSoTinChi": 11,
+      "required": {
+        "creditRequirement": 11,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "002009",
+            "tenMonHoc": "Nhập môn Tin học",
+            "maHocPhan": "4203002009",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003192",
+            "tenMonHoc": "Kỹ năng làm việc nhóm",
+            "maHocPhan": "4203003192",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003242",
+            "tenMonHoc": "Giáo dục Quốc phòng và An ninh 1*",
+            "maHocPhan": "4203003242",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 4,
+            "soTietLT": 60,
+            "soTietTH": 0
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003259",
+            "tenMonHoc": "Toán cao cấp 1",
+            "maHocPhan": "4203003259",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003307",
+            "tenMonHoc": "Giáo dục thể chất 1*",
+            "maHocPhan": "4203003307",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 0,
+            "soTietTH": 60
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "003848",
+            "tenMonHoc": "Nhập môn Lập trình",
+            "maHocPhan": "4203003848",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 0,
+            "soTietTH": 60
+          },
+          {
+            "stt": 7,
+            "maMonHoc": "014164",
+            "tenMonHoc": "Triết học Mác - Lênin",
+            "maHocPhan": "4203014164",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 8,
+            "maMonHoc": "015216",
+            "tenMonHoc": "Chứng chỉ Tiếng Anh *",
+            "maHocPhan": "4203015216",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 0,
+            "soTietLT": 0,
+            "soTietTH": 0
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 2",
+      "tongSoTinChi": 12,
+      "required": {
+        "creditRequirement": 9,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "000941",
+            "tenMonHoc": "Kỹ thuật lập trình",
+            "maHocPhan": "4203000941",
+            "hocPhanHocTruoc": "003848(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "002137",
+            "tenMonHoc": "Hệ thống Máy tính",
+            "maHocPhan": "4203002137",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003306",
+            "tenMonHoc": "Giáo dục thể chất 2*",
+            "maHocPhan": "4203003306",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 0,
+            "soTietTH": 60
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003354",
+            "tenMonHoc": "Giáo dục quốc phòng và an ninh 2 *",
+            "maHocPhan": "4203003354",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 4,
+            "soTietLT": 30,
+            "soTietTH": 60
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "014165",
+            "tenMonHoc": "Kinh tế chính tri Mác - Lênin",
+            "maHocPhan": "4203014165",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "015253",
+            "tenMonHoc": "Tiếng Anh 1*",
+            "maHocPhan": "4203015253",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 3,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "003193",
+            "tenMonHoc": "Toán ứng dụng",
+            "maHocPhan": "4203003193",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003240",
+            "tenMonHoc": "Hàm phức và phép biến đổi Laplace",
+            "maHocPhan": "4203003240",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003320",
+            "tenMonHoc": "Phương pháp tính",
+            "maHocPhan": "4203003320",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 0,
+            "soTietTH": 0
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003345",
+            "tenMonHoc": "Vật lý đại cương",
+            "maHocPhan": "4203003345",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003395",
+            "tenMonHoc": "Logic học",
+            "maHocPhan": "4203003395",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 0
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 3",
+      "tongSoTinChi": 19,
+      "required": {
+        "creditRequirement": 16,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "000901",
+            "tenMonHoc": "Cấu trúc rời rạc",
+            "maHocPhan": "4203000901",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "000942",
+            "tenMonHoc": "Cấu trúc dữ liệu và giải thuật",
+            "maHocPhan": "4203000942",
+            "hocPhanHocTruoc": "003848(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "001146",
+            "tenMonHoc": "Hệ cơ sở dữ liệu",
+            "maHocPhan": "4203001146",
+            "hocPhanHocTruoc": "002009(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003288",
+            "tenMonHoc": "Toán cao cấp 2",
+            "maHocPhan": "4203003288",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003591",
+            "tenMonHoc": "Lập trình hướng đối tượng",
+            "maHocPhan": "4203003591",
+            "hocPhanHocTruoc": "003848(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "015254",
+            "tenMonHoc": "Tiếng Anh 2*",
+            "maHocPhan": "4203015254",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 3,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001103",
+            "tenMonHoc": "Toán ứng dụng",
+            "maHocPhan": "4203003193",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003197",
+            "tenMonHoc": "Kỹ năng xây dựng kế hoạch",
+            "maHocPhan": "4203003197",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003206",
+            "tenMonHoc": "Môi trường và con người",
+            "maHocPhan": "4203003206",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "015296",
+            "tenMonHoc": "Công nghệ thông tin trong chuyền đổi số",
+            "maHocPhan": "4203015296",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "015299",
+            "tenMonHoc": "Ứng dụng hóa học trong Công nghiệp",
+            "maHocPhan": "4203015299",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "015300",
+            "tenMonHoc": "Ứng dụng 5S và Kaizen trong sản xuất",
+            "maHocPhan": "4203015300",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 4",
+      "tongSoTinChi": 19,
+      "required": {
+        "creditRequirement": 12,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001058",
+            "tenMonHoc": "Mạng máy tính",
+            "maHocPhan": "4203001058",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "002145",
+            "tenMonHoc": "Hệ thống và Công nghệ Web",
+            "maHocPhan": "4203002145",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003753",
+            "tenMonHoc": "Phân tích thiết kế hệ thống",
+            "maHocPhan": "4203003753",
+            "hocPhanHocTruoc": "001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "014166",
+            "tenMonHoc": "Hệ quản trị cơ sở dữ liệu NoSQL MongoDB",
+            "maHocPhan": "4203014166",
+            "hocPhanHocTruoc": "001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 7,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001076",
+            "tenMonHoc": "Tương tác người máy",
+            "maHocPhan": "4203001076",
+            "hocPhanHocTruoc": "002137(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "001207",
+            "tenMonHoc": "Lập trình hướng sự kiện với công nghệ .NET",
+            "maHocPhan": "4203001207",
+            "hocPhanHocTruoc": "001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "002044",
+            "tenMonHoc": "Môi trường và con người",
+            "maHocPhan": "4203002044",
+            "hocPhanHocTruoc": "003591(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "002070",
+            "tenMonHoc": "Lập trình hướng sự kiện với công nghệ Java",
+            "maHocPhan": "4203002070",
+            "hocPhanHocTruoc": "003591(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003436",
+            "tenMonHoc": "Thương mại điện tử",
+            "maHocPhan": "4203003436",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "003442",
+            "tenMonHoc": "Lập trình GUI với Qt Framework",
+            "maHocPhan": "4203003442",
+            "hocPhanHocTruoc": "003848(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 5",
+      "tongSoTinChi": 19,
+      "required": {
+        "creditRequirement": 16,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "000908",
+            "tenMonHoc": "Lý thuyết đồ thị",
+            "maHocPhan": "4203000908",
+            "hocPhanHocTruoc": "000901(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003198",
+            "tenMonHoc": "Phương pháp luận nghiên cứu khoa học",
+            "maHocPhan": "4203003198",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003501",
+            "tenMonHoc": "Phát triển ứng dụng",
+            "maHocPhan": "4203003501",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "014167",
+            "tenMonHoc": "Chủ nghĩa xã hội khoa học",
+            "maHocPhan": "4203014167",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "014168",
+            "tenMonHoc": "Mô hình hóa dữ liêu NoSQL MongoDB",
+            "maHocPhan": "4203014168",
+            "hocPhanHocTruoc": "014166(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "015414",
+            "tenMonHoc": "Tư duy thiết kế và Trải nghiệm người dùng",
+            "maHocPhan": "4203015414",
+            "hocPhanHocTruoc": "002145(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 3,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "003194",
+            "tenMonHoc": "Toán ứng dụng",
+            "maHocPhan": "4203003193",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003195",
+            "tenMonHoc": "Kỹ năng xây dựng kế hoạch",
+            "maHocPhan": "4203003197",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003203",
+            "tenMonHoc": "Môi trường và con người",
+            "maHocPhan": "4203003206",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003245",
+            "tenMonHoc": "Công nghệ thông tin trong chuyền đổi số",
+            "maHocPhan": "4203015296",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003325",
+            "tenMonHoc": "Ứng dụng hóa học trong Công nghiệp",
+            "maHocPhan": "4203015299",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "010665",
+            "tenMonHoc": "Ứng dụng 5S và Kaizen trong sản xuất",
+            "maHocPhan": "4203015300",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 7,
+            "maMonHoc": "014193",
+            "tenMonHoc": "Kỹ năng sử dụng bàn phím và thiết bị văn phòng",
+            "maHocPhan": "4203014193",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 6",
+      "tongSoTinChi": 21,
+      "required": {
+        "creditRequirement": 15,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001004",
+            "tenMonHoc": "Nhập môn an toàn thông tin",
+            "maHocPhan": "4203001004",
+            "hocPhanHocTruoc": "002137(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "001111",
+            "tenMonHoc": "Công nghệ phần mềm",
+            "maHocPhan": "4203001111",
+            "hocPhanHocTruoc": "003591,001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003347",
+            "tenMonHoc": "Những vấn đề xã hội và đạo đức nghề nghiệp",
+            "maHocPhan": "4203003347",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003451",
+            "tenMonHoc": "Thống kê máy tính và ứng dụng",
+            "maHocPhan": "4203003451",
+            "hocPhanHocTruoc": "000941(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "015413",
+            "tenMonHoc": "Phát triển giao diện ứng dụng",
+            "maHocPhan": "4203015413",
+            "hocPhanHocTruoc": "002145(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 6,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "000868",
+            "tenMonHoc": "Kỹ thuật điện tử",
+            "maHocPhan": "4203000868",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "002031",
+            "tenMonHoc": "Lập trình phân tích dữ liệu 1",
+            "maHocPhan": "4203002031",
+            "hocPhanHocTruoc": "000941(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "002146",
+            "tenMonHoc": "Lập trình phân tán với công nghệ Java",
+            "maHocPhan": "4203002146",
+            "hocPhanHocTruoc": "002070,014166(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "002349",
+            "tenMonHoc": "Lập trình phân tán với công nghệ .NET",
+            "maHocPhan": "4203002349",
+            "hocPhanHocTruoc": "002044,014166(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003443",
+            "tenMonHoc": "Khai thác dữ liệu và ứng dụng",
+            "maHocPhan": "4203003443",
+            "hocPhanHocTruoc": "001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "003773",
+            "tenMonHoc": "Lập trình mạng với Qt Framework",
+            "maHocPhan": "4203003773",
+            "hocPhanHocTruoc": "003442(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 7",
+      "tongSoTinChi": 15,
+      "required": {
+        "creditRequirement": 11,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001432",
+            "tenMonHoc": "Lập trình cho thiết bị di động",
+            "maHocPhan": "4203001432",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "002422",
+            "tenMonHoc": "Pháp luật đại cương",
+            "maHocPhan": "4203002422",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003592",
+            "tenMonHoc": "Đảm bảo chất lượng và Kiểm thử phần mềm",
+            "maHocPhan": "4203003592",
+            "hocPhanHocTruoc": "001111(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "014169",
+            "tenMonHoc": "Lịch sử Đảng Cộng sản Việt Nam",
+            "maHocPhan": "4203014169",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 4,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "003621",
+            "tenMonHoc": "Lập trình WWW (Java)",
+            "maHocPhan": "4203003621",
+            "hocPhanHocTruoc": "002145,002146(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "003774",
+            "tenMonHoc": "Phát triển ứng dụng Web với Qt Engine",
+            "maHocPhan": "4203003774",
+            "hocPhanHocTruoc": "003773(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "004147",
+            "tenMonHoc": "Lập trình WWW (.NET)",
+            "maHocPhan": "4203004147",
+            "hocPhanHocTruoc": "002145,002349(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "004323",
+            "tenMonHoc": "Lập trình loTs",
+            "maHocPhan": "4203004323",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 4,
+            "soTietLT": 30,
+            "soTietTH": 60
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 8",
+      "tongSoTinChi": 15,
+      "required": {
+        "creditRequirement": 9,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "000664",
+            "tenMonHoc": "Tư tưởng Hồ Chí Minh",
+            "maHocPhan": "4203000664",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 2,
+            "soTietLT": 30,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "001549",
+            "tenMonHoc": "Kiến trúc và Thiết kế Phần mềm",
+            "maHocPhan": "4203001549",
+            "hocPhanHocTruoc": "003753(a)",
+            "soTinChi": 4,
+            "soTietLT": 45,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "003147",
+            "tenMonHoc": "Công nghệ mới trong phát triển ứng dụng CNTT",
+            "maHocPhan": "4203003147",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      },
+      "electives": {
+        "creditRequirement": 6,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "001366",
+            "tenMonHoc": "Automat & ngôn ngữ hình thức",
+            "maHocPhan": "4203001366",
+            "hocPhanHocTruoc": "000901(a)",
+            "soTinChi": 3,
+            "soTietLT": 45,
+            "soTietTH": 0
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "002329",
+            "tenMonHoc": "Nhập môn dữ liêu lớn",
+            "maHocPhan": "4203002329",
+            "hocPhanHocTruoc": "001146(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 3,
+            "maMonHoc": "002330",
+            "tenMonHoc": "Lập trình phân tích dữ liệu 2",
+            "maHocPhan": "4203002330",
+            "hocPhanHocTruoc": "001146,003451(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 4,
+            "maMonHoc": "003453",
+            "tenMonHoc": "Tiếp thị điện tử",
+            "maHocPhan": "4203003453",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 5,
+            "maMonHoc": "003758",
+            "tenMonHoc": "Kiến trúc hướng dịch vụ và Điện toán đám mây",
+            "maHocPhan": "4203003758",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 6,
+            "maMonHoc": "003775",
+            "tenMonHoc": "Lập trình thiết bị di động nâng cao",
+            "maHocPhan": "4203003775",
+            "hocPhanHocTruoc": "001432(a)",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          },
+          {
+            "stt": 7,
+            "maMonHoc": "004056",
+            "tenMonHoc": "Quản lý dự án CNTT",
+            "maHocPhan": "4203004056",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 3,
+            "soTietLT": 30,
+            "soTietTH": 30
+          }
+        ]
+      }
+    },
+    {
+      "tenHocKy": "Học Kỳ 9",
+      "tongSoTinChi": 13,
+      "required": {
+        "creditRequirement": 13,
+        "courses": [
+          {
+            "stt": 1,
+            "maMonHoc": "003098",
+            "tenMonHoc": "Thực tập doanh nghiệp",
+            "maHocPhan": "4203003098",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 5,
+            "soTietLT": 0,
+            "soTietTH": 150
+          },
+          {
+            "stt": 2,
+            "maMonHoc": "014170",
+            "tenMonHoc": "Khóa luận tốt nghiệp",
+            "maHocPhan": "4203014170",
+            "hocPhanHocTruoc": "",
+            "soTinChi": 8,
+            "soTietLT": 0,
+            "soTietTH": 240
+          }
+        ]
+      }
+    }
+  ]
+}
