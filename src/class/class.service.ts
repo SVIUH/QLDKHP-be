@@ -172,19 +172,27 @@ export class ClassService {
   }
 
   async getClassesBySubjectWithSchedules(subject_id: number) {
-    const classes = await this.classRepository.findManyBySubject(subject_id);
-  
-    const result = await Promise.all(
+  const classes = await this.classRepository.findManyBySubject(subject_id);
+
+  const result = await Promise.all(
       classes.map(async (cls) => {
         const schedules = await this.scheduleService.getSchedulesByClassId(cls.class_id);
-  
+
         return {
           ...cls,
           schedules,
+          class_details: cls.details.map(detail => ({
+            class_detail_id: detail.class_detail_id,
+            study_time: detail.study_time,
+            group_practice: detail.group_practice,
+            room_name: detail.room_name,
+            towner: detail.towner,
+            // Thêm các trường khác nếu cần
+          })),
         };
       }),
     );
-  
+
     return result;
   }
 }
