@@ -8,10 +8,12 @@ dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // ⚠️ Thêm dòng này để cho phép frontend gọi API
+  /* ----- CORS ----- */
   app.enableCors({
-    origin: "http://localhost:5173", // URL frontend của bạn
-    credentials: true, // Nếu bạn có dùng cookie / token gửi qua header
+    origin: process.env.FRONTEND_ORIGIN?.split(',') || '*', // cho 5173
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
   });
 
   const config = new DocumentBuilder()

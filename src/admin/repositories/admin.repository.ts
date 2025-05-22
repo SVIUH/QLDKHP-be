@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../../prisma/prisma.service";
-import { CreateClassDto, UpdateClassDto } from "../dto/class.dto";
-import { UpdateGradeDto } from "../dto/grade.dto";
-import { CreateScheduleDto } from "../dto/schedule.dto";
-import { Prisma } from "@prisma/client";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../../prisma/prisma.service';
+import { CreateClassDto, UpdateClassDto } from '../dto/class.dto';
+import { UpdateGradeDto } from '../dto/grade.dto';
+import { CreateScheduleDto } from '../dto/schedule.dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AdminRepository {
@@ -30,7 +30,7 @@ export class AdminRepository {
         }),
       },
       include: {
-        subject: true, // nếu bạn muốn include luôn subject
+        subject: true,
       },
     });
   }
@@ -101,7 +101,7 @@ export class AdminRepository {
   async getGradesByStudent(student_id: number) {
     return this.prisma.grade.findMany({
       where: {
-        student_id: Number(student_id), // ✅ Đảm bảo student_id là số
+        student_id: Number(student_id),
       },
     });
   }
@@ -109,7 +109,7 @@ export class AdminRepository {
   async getSchedulesByStudent(student_id: number) {
     return this.prisma.schedule.findMany({
       where: {
-        student_id: Number(student_id), // ✅ Đảm bảo student_id là số
+        student_id: Number(student_id),
       },
     });
   }
@@ -122,9 +122,9 @@ export class AdminRepository {
     data: Partial<
       Pick<
         Prisma.StudentUpdateInput,
-        "student_name" | "email" | "status" | "gender"
+        'student_name' | 'email' | 'status' | 'gender'
       >
-    >
+    >,
   ) {
     return this.prisma.student.update({
       where: { student_id },

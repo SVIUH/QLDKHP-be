@@ -28,12 +28,13 @@ import { ChatbotModule } from './chatbot/chatbot.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ".env",
+      envFilePath: '.env',
       isGlobal: true,
     }),
     UserModule,
     AdminModule,
     PrismaModule,
+    AiClassModule,
     EnrollmentModule,
     ClassModule,
     GradeModule,
@@ -43,14 +44,14 @@ import { ChatbotModule } from './chatbot/chatbot.module';
       useFactory: async (configService: ConfigService) => ({
         isGlobal: true,
         store: redisStore,
-        host: configService.get<string>("REDIS_HOST"),
-        port: configService.get<number>("REDIS_PORT"),
-        username: configService.get<string>("REDIS_USERNAME"),
-        password: configService.get<string>("REDIS_PASSWORD"),
+        host: configService.get<string>('REDIS_HOST'),
+        port: configService.get<number>('REDIS_PORT'),
+        username: configService.get<string>('REDIS_USERNAME'),
+        password: configService.get<string>('REDIS_PASSWORD'),
       }),
     }),
     TypeOrmModule.forRoot({
-      type: "postgres",
+      type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [],
       synchronize: true,
@@ -61,9 +62,9 @@ import { ChatbotModule } from './chatbot/chatbot.module';
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
         redis: {
-          host: config.get("REDIS_HOST"),
-          port: config.get("REDIS_PORT"),
-          password: config.get("REDIS_PASSWORD"),
+          host: config.get('REDIS_HOST'),
+          port: config.get('REDIS_PORT'),
+          password: config.get('REDIS_PASSWORD'),
         },
       }),
       inject: [ConfigService],
@@ -79,7 +80,7 @@ import { ChatbotModule } from './chatbot/chatbot.module';
     PrismaService, // Thêm AppService vào providers
     CommonService,
     {
-      provide: "VALID",
+      provide: 'VALID',
       useClass: Valid,
     },
     // {
