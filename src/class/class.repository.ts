@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
-import { ClassToDBDto } from "./dto/class.db.dto";
-import { EnrollmentEnum } from "src/enums";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
+import { ClassToDBDto } from './dto/class.db.dto';
+import { EnrollmentEnum } from 'src/enums';
 @Injectable()
 export class ClassRepository {
   constructor(private prisma: PrismaService) {}
@@ -90,7 +90,7 @@ export class ClassRepository {
               });
               return student;
             }
-          })
+          }),
         )
       ).filter((student) => student !== undefined);
 
@@ -130,7 +130,7 @@ export class ClassRepository {
   async getClassesBySubjectId(subjectId: number) {
     return await this.prisma.class.findMany({
       where: {
-        subject_id: subjectId,
+        subject_id: Number(subjectId),
       },
       include: {
         subject: true,

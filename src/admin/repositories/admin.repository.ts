@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../../prisma/prisma.service";
-import { CreateClassDto, UpdateClassDto } from "../dto/class.dto";
-import { UpdateGradeDto } from "../dto/grade.dto";
-import { CreateScheduleDto } from "../dto/schedule.dto";
-import { Prisma } from "@prisma/client";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../../prisma/prisma.service';
+import { CreateClassDto, UpdateClassDto } from '../dto/class.dto';
+import { UpdateGradeDto } from '../dto/grade.dto';
+import { CreateScheduleDto } from '../dto/schedule.dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AdminRepository {
@@ -30,14 +30,14 @@ export class AdminRepository {
         }),
       },
       include: {
-        subject: true, // nếu bạn muốn include luôn subject
+        subject: true,
       },
     });
   }
 
   async createClass(data: CreateClassDto) {
-    const createClassData: Prisma.ClassUncheckedCreateInput = {
-      subject_id: data.subject_id,
+    const createClassData: Prisma.ClassCreateInput = {
+      subject: { connect: { subject_id: data.subject_id } },
       professor_name: data.professor_name,
       class_name: data.class_name,
       max_capacity: data.max_capacity,
@@ -46,8 +46,22 @@ export class AdminRepository {
       year: data.year,
       status: data.status ?? true,
       isEnrolling: data.isEnrolling ?? true,
+      details: {
+        create: data.classDetails.map((detail) => ({
+          study_time: detail.study_time,
+          group_practice: detail.group_practice,
+          room_name: detail.room_name,
+          towner: detail.towner,
+        })),
+      },
     };
-    return this.prisma.class.create({ data: createClassData });
+
+    return this.prisma.class.create({
+      data: createClassData,
+      include: {
+        details: true,
+      },
+    });
   }
 
   async updateClass(class_id: number, data: UpdateClassDto) {
@@ -87,7 +101,7 @@ export class AdminRepository {
   async getGradesByStudent(student_id: number) {
     return this.prisma.grade.findMany({
       where: {
-        student_id: Number(student_id), // ✅ Đảm bảo student_id là số
+        student_id: Number(student_id),
       },
     });
   }
@@ -95,7 +109,7 @@ export class AdminRepository {
   async getSchedulesByStudent(student_id: number) {
     return this.prisma.schedule.findMany({
       where: {
-        student_id: Number(student_id), // ✅ Đảm bảo student_id là số
+        student_id: Number(student_id),
       },
     });
   }
@@ -108,9 +122,9 @@ export class AdminRepository {
     data: Partial<
       Pick<
         Prisma.StudentUpdateInput,
-        "student_name" | "email" | "status" | "gender"
+        'student_name' | 'email' | 'status' | 'gender'
       >
-    >
+    >,
   ) {
     return this.prisma.student.update({
       where: { student_id },

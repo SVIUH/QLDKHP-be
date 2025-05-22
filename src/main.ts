@@ -7,6 +7,13 @@ dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  /* ----- CORS ----- */
+  app.enableCors({
+    origin: process.env.FRONTEND_ORIGIN?.split(',') || '*', // cho 5173
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
+  });
   const config = new DocumentBuilder()
     .setTitle("Quản lý học phần - Admin API")
     .setDescription("Tài liệu Swagger cho hệ thống Admin")
