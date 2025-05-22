@@ -5,8 +5,8 @@ import {
   IsOptional,
   ValidateNested,
   IsArray,
-} from 'class-validator';
-import { Type } from 'class-transformer';
+} from "class-validator";
+import { Type } from "class-transformer";
 
 export class CreateClassDetailDto {
   @IsString()

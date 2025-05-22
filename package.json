@@ -1,7 +1,7 @@
 {
   "name": "qldkhp-be",
   "version": "0.0.1",
-  "description": "",
+  "description": "<p align=\"center\">\r   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"120\" alt=\"Nest Logo\" /></a>\r </p>",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -33,9 +33,11 @@
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.12",
+    "@nestjs/platform-socket.io": "^11.1.1",
     "@nestjs/schedule": "^5.0.1",
     "@nestjs/swagger": "^11.1.0",
     "@nestjs/typeorm": "^11.0.0",
+    "@nestjs/websockets": "^11.1.1",
     "@prisma/client": "^6.5.0",
     "axios": "^1.9.0",
     "bcryptjs": "^3.0.2",
@@ -49,6 +51,7 @@
     "dotenv": "^16.4.7",
     "ioredis": "^5.6.0",
     "jsonwebtoken": "^9.0.2",
+    "node-nlp": "^5.0.0-alpha.5",
     "nodemailer": "^6.10.0",
     "passport": "^0.7.0",
     "pg": "^8.13.3",
@@ -101,5 +104,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }

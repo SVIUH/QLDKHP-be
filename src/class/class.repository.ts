@@ -143,7 +143,7 @@ export class ClassRepository {
     return await this.prisma.class.findMany({
       where: { subject_id: subject_id },
       include: {
-        details: true, // Không cần include class_detail nữa
+        details: true,
       },
     });
   }

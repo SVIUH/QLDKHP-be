@@ -1,28 +1,30 @@
 /* eslint-disable prettier/prettier */
-import { Module } from '@nestjs/common';
-import { CacheInterceptor } from '@nestjs/cache-manager';
-import * as redisStore from 'cache-manager-redis-store';
-import { AuthModule } from './auth/auth.module';
-import { PrismaModule } from './prisma/prisma.module';
-import { UserController } from './user/user.controller';
-import { UserModule } from './user/user.module';
-import { BullModule } from '@nestjs/bull';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { APP_INTERCEPTOR } from '@nestjs/core';
-import { CommonService } from './common/common.service';
-import { Valid } from './utils/validUser';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { EnrollmentModule } from './enrollment/enrollment.module';
-import { SubjectModule } from './subject/subject.module';
-import { AppController } from './app.controller';
-import { ClassModule } from './class/class.module';
-import { GradeModule } from './grade/grade.module';
-import { ScheduleModule } from './schedule/schedule.module';
-import { CacheModule } from '@nestjs/cache-manager';
-import { AppService } from './app.service'; // Nhập AppService ở đây
-import { AdminModule } from './admin/admin.module';
-import { PrismaService } from './prisma/prisma.service';
-import { AiClassModule } from './ai-class/ai-class.module';
+import { Module } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import * as redisStore from "cache-manager-redis-store";
+import { AuthModule } from "./auth/auth.module";
+import { PrismaModule } from "./prisma/prisma.module";
+import { UserController } from "./user/user.controller";
+import { UserModule } from "./user/user.module";
+import { BullModule } from "@nestjs/bull";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { APP_INTERCEPTOR } from "@nestjs/core";
+import { CommonService } from "./common/common.service";
+import { Valid } from "./utils/validUser";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { EnrollmentModule } from "./enrollment/enrollment.module";
+import { SubjectModule } from "./subject/subject.module";
+import { AppController } from "./app.controller";
+import { ClassModule } from "./class/class.module";
+import { GradeModule } from "./grade/grade.module";
+import { ScheduleModule } from "./schedule/schedule.module";
+import { CacheModule } from "@nestjs/cache-manager";
+import { AppService } from "./app.service"; // Nhập AppService ở đây
+import { AdminModule } from "./admin/admin.module";
+import { PrismaService } from "./prisma/prisma.service";
+import { ChatModule } from "./chat/chat.module";
+import { ChatbotModule } from './chatbot/chatbot.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -70,6 +72,8 @@ import { AiClassModule } from './ai-class/ai-class.module';
     AuthModule,
     SubjectModule,
     ScheduleModule,
+    ChatModule,
+    ChatbotModule,
   ],
   providers: [
     AppService,
@@ -79,10 +83,10 @@ import { AiClassModule } from './ai-class/ai-class.module';
       provide: 'VALID',
       useClass: Valid,
     },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
-    },
+    // {
+    //   provide: APP_INTERCEPTOR,
+    //   useClass: CacheInterceptor,
+    // },
   ],
   controllers: [UserController, AppController],
 })

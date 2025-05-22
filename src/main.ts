@@ -7,6 +7,7 @@ dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   /* ----- CORS ----- */
   app.enableCors({
     origin: process.env.FRONTEND_ORIGIN?.split(',') || '*', // cho 5173
@@ -14,6 +15,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
   });
+
   const config = new DocumentBuilder()
     .setTitle("Quản lý học phần - Admin API")
     .setDescription("Tài liệu Swagger cho hệ thống Admin")
@@ -22,7 +24,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api/docs", app, document); // Truy cập tại /api/docs
+  SwaggerModule.setup("api/docs", app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }

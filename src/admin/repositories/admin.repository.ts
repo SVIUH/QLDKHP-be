@@ -37,7 +37,7 @@ export class AdminRepository {
 
   async createClass(data: CreateClassDto) {
     const createClassData: Prisma.ClassCreateInput = {
-      subject: { connect: { subject_id: data.subject_id } },
+      subject: { connect: { subject_id: data.subject_id } }, // do ClassCreateInput dùng relation
       professor_name: data.professor_name,
       class_name: data.class_name,
       max_capacity: data.max_capacity,
